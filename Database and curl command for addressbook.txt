@@ -9,3 +9,33 @@ export ADDRESSBOOK_DB_USERNAME=addressbookUser
 export ADDRESSBOOK_DB_PASSWORD=password
 echo $ADDRESSBOOK_DB_USERNAME
 
+
+Curl Command
+
+curl localhost:8080/addressbook/ -w "\n"
+
+curl localhost:8080/addressbook/get/1 -w "\n"
+
+curl -X POST -H "Content-Type:application/json" -d'{"name":"Sham","profilePic":"../assets/profile-images/Ellipse-3.png","address":"Shree Nagar Bhusawal","city":"Bhusawal","state":"Maharstra","zip":425201,"phone":9637074619}' "http://localhost:8080/addressbook/create" -w"\n"
+
+curl -X PUT -H "Content-Type: application/json" -d'{"name":"Lisha","profilePic":"../assets/profile-images/Ellipse-3.png","address":"Shree Nagar Bhusawal","city":"Bhusawal","state":"Maharstra","zip":425201,"phone":9637074619}' "http://localhost:8080/addressbook/update/3" -w"\n"
+
+curl -X DELETE -H "Content-Type: application/json" localhost:8080/addressbook/delete/1 -w "\n"
+
+
+Postman Command
+
+http://localhost:8080/addressbook/
+http://localhost:8080/addressbook/get/1
+http://localhost:8080/addressbook/create
+http://localhost:8080/addressbook/update/4
+http://localhost:8080/addressbook/delete/3
+{
+"name":"Sham",
+"profilePic":"../assets/profile-images/Ellipse-3.png",
+"address":"Shree Nagar Bhusawal",
+"city":"Bhusawal",
+"state":"Maharstra",
+"zip":425201,
+"phone":9637074619
+}
