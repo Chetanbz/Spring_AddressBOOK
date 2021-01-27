@@ -3,7 +3,8 @@ package com.example.addressbok.model;
 import com.example.addressbok.dto.AddressBookDTO;
 import lombok.Data;
 
-public @Data class AddressBookData {
+public @Data
+class AddressBookData {
     private  int addreessId;
     private String name;
     private String profilePic;
@@ -16,6 +17,7 @@ public @Data class AddressBookData {
     public AddressBookData(int id, AddressBookDTO addressBookDTO) {
         this.addreessId = id;
         updateAddressBookData(addressBookDTO);
+
     }
 
     public void updateAddressBookData(AddressBookDTO addressBookDTO){
