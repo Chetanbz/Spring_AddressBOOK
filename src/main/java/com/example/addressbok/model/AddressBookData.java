@@ -3,9 +3,17 @@ package com.example.addressbok.model;
 import com.example.addressbok.dto.AddressBookDTO;
 import lombok.Data;
 
-public @Data
-class AddressBookData {
+import javax.persistence.*;
+
+@Entity
+@Table(name= "addressbook")
+public @Data class AddressBookData {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "addressbook_id")
     private  int addreessId;
+    @Column(name = "name")
     private String name;
     private String profilePic;
     private String address;
@@ -14,8 +22,11 @@ class AddressBookData {
     private int zip;
     private long phone;
 
-    public AddressBookData(int id, AddressBookDTO addressBookDTO) {
-        this.addreessId = id;
+    public AddressBookData(){
+
+    }
+
+    public AddressBookData(AddressBookDTO addressBookDTO) {
         updateAddressBookData(addressBookDTO);
 
     }
