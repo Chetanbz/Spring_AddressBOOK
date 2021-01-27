@@ -1,0 +1,11 @@
+Data Base Command
+create database addressbook_db;
+create user 'addressbookUser'@'%'identified by 'password';
+
+grant all on addressbook_db.* to 'addressbookUser'@'%';
+
+Add database
+export ADDRESSBOOK_DB_USERNAME=addressbookUser
+export ADDRESSBOOK_DB_PASSWORD=password
+echo $ADDRESSBOOK_DB_USERNAME
+
