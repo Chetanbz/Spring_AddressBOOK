@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/addressbook")
-
+@CrossOrigin(origins = "http://localhost:3000")
 public class AddressBookController {
     private AddressBookData addData;
 
@@ -26,7 +26,7 @@ public class AddressBookController {
     public ResponseEntity<ResponseDTO> getAddressBookData(){
         List<AddressBookData> addressBookDataList = iAddressBookService.getAddressBookData();
         ResponseDTO respDTO = new ResponseDTO("Get Call SuccessFull", addressBookDataList);
-        System.out.println("get normal");
+        System.out.println("get list in databse");
         return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
     }
 
@@ -35,7 +35,7 @@ public class AddressBookController {
         AddressBookData addData =null;
         addData = iAddressBookService.getAddressBookDataById(addId);
         ResponseDTO respDTO = new ResponseDTO("Get call Sucess for Id:", addData);
-        System.out.println("get Id");
+        System.out.println("get by id called");
         return new ResponseEntity<ResponseDTO>(respDTO,HttpStatus.OK);
     }
 
@@ -44,7 +44,7 @@ public class AddressBookController {
         AddressBookData addData =null;
         addData = iAddressBookService.createAddressBookData(addressBookDTO);
         ResponseDTO respDTO = new ResponseDTO("Created Address for: ", addData);
-        System.out.println("create ");
+        System.out.println("post method is called ");
         return new ResponseEntity<ResponseDTO>(respDTO,HttpStatus.OK);
     }
 
@@ -54,7 +54,7 @@ public class AddressBookController {
         AddressBookData addData =null;
         addData = iAddressBookService.updateAddressBookData(addId,addressBookDTO);
         ResponseDTO respDTO = new ResponseDTO("Update Address for :", addData);
-        System.out.println("update");
+        System.out.println("put method is called");
         return new ResponseEntity<ResponseDTO>(respDTO,HttpStatus.OK);
     }
 
@@ -62,6 +62,7 @@ public class AddressBookController {
     public ResponseEntity<ResponseDTO> deleteEmployeePayrollData(@PathVariable("addId") int addId){
         iAddressBookService.deleteAddressBookData(addId);
         ResponseDTO respDTO = new ResponseDTO("Delete  Sucessfully :","Deleted Id: " + addId);
+        System.out.println("delete method is called");
         return new ResponseEntity<ResponseDTO>(respDTO,HttpStatus.OK);
     }
 }
